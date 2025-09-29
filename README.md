@@ -1,6 +1,6 @@
 # Pet Café  
 
-Pet Café is a web application designed to manage a pet-friendly café that integrates community features with animal adoption services. The system provides customers with a seamless experience for browsing products, reserving tables, exploring adoptable animals, and participating in events and workshops.  
+Pet Café is a web application designed to manage a pet-friendly café that integrates community features with animal adoption services. The system provides customers with a seamless experience for browsing products, reserving tables and exploring adoptable animals.
 <img width="1916" height="913" alt="Screenshot 2025-09-29 122817" src="https://github.com/user-attachments/assets/b5ff0926-9bc5-4f68-82b9-420be9d86d91" />
 <img width="1904" height="959" alt="Screenshot 2025-09-29 123052" src="https://github.com/user-attachments/assets/c760f5cc-354e-4cd8-9514-f8b6a1898d8d" />
 <img width="1787" height="982" alt="Screenshot 2025-09-29 123015" src="https://github.com/user-attachments/assets/d286d705-9453-4c37-bce4-763cffde4e73" />
