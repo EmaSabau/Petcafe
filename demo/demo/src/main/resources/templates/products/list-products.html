@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menu</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f3e5d8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #5a3e36;
+            font-size: 36px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .menu-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .menu-card:hover {
+            transform: scale(1.05);
+        }
+        .menu-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .menu-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #5a3e36;
+            margin: 10px 0;
+        }
+        .menu-price {
+            color: #a0522d;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .menu-description {
+            color: #7b4f44;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .menu-actions {
+            margin-top: 10px;
+        }
+        .menu-actions a, .menu-actions button {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .edit-btn {
+            background-color: #ff9800;
+            color: white;
+        }
+        .delete-btn {
+            background-color: #d32f2f;
+            color: white;
+        }
+    </style>
+    <script>
+        function filterProducts() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let products = document.querySelectorAll('.menu-card');
+
+            products.forEach(product => {
+                let name = product.querySelector('.menu-name').textContent.toLowerCase();
+                product.style.display = name.includes(input) ? '' : 'none';
+            });
+        }
+
+        function filterByType(type) {
+            let products = document.querySelectorAll('.menu-card');
+
+            products.forEach(product => {
+                let category = product.querySelector('.menu-description').textContent.trim();
+                product.style.display = category === type ? '' : 'none';
+            });
+        }
+
+        function resetFilter() {
+            let products = document.querySelectorAll('.menu-card');
+            products.forEach(product => product.style.display = '');
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Our Coffee & Treats Menu</h1>
+
+    <!-- Search bar -->
+    <input type="text" id="searchBar" placeholder="Search for a product..." onkeyup="filterProducts()">
+
+    <!-- Filter buttons -->
+    <div>
+        <a href="/Product" class="filter-btn">Show All</a>
+        <a href="/Product/filter?type=COFFEE" class="filter-btn">Coffee</a>
+        <a href="/Product/filter?type=TEA" class="filter-btn">Tea</a>
+        <a href="/Product/filter?type=DESSERT" class="filter-btn">Dessert</a>
+    </div>
+
+    <style>
+        .filter-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #5a3e36;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .filter-btn:hover {
+            background-color: #a0522d;
+        }
+    </style>
+
+
+
+    <div class="menu-grid">
+        <div class="menu-card" th:each="product : ${products}">
+            <img th:src="${product.image}" alt="Menu Item">
+            <div class="menu-name" th:text="${product.name}"></div>
+            <div class="menu-price" th:text="'$' + ${product.price}"></div>
+            <div class="menu-description" th:text="${product.productType}"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

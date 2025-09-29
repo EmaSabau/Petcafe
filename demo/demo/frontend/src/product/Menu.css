@@ -1,0 +1,88 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #5a3e36;
+    font-size: 36px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.menu-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    transition: transform 0.3s;
+}
+
+.menu-card:hover {
+    transform: scale(1.05);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.menu-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #5a3e36;
+    margin: 10px 0;
+}
+
+.menu-price {
+    color: #a0522d;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.menu-description {
+    color: #7b4f44;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.filter-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #5a3e36;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background-color: #a0522d;
+}
+
+input#searchBar {
+    padding: 10px;
+    width: 300px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

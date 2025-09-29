@@ -1,0 +1,216 @@
+/* AnimalList.css */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+/* Filtre */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filters select,
+.filters input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    flex: 1 1 200px;
+    min-width: 150px;
+}
+
+.filters button {
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    flex: 1 1 150px;
+}
+
+.filters button:hover {
+    background-color: #7f8c8d;
+}
+
+/* Lista animale */
+.animal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.animal-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: white;
+}
+
+.animal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Buton favorite */
+.favourite-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.favourite-icon:hover {
+    background-color: rgba(231, 76, 60, 0.8);
+}
+
+.favourite-icon i {
+    color: #e74c3c;
+    font-size: 20px;
+}
+
+.favourite-icon:hover i {
+    color: white;
+}
+
+/* Imagine animal */
+.animal-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    border-bottom: 1px solid #eee;
+}
+
+/* Info animal */
+.animal-info {
+    padding: 20px;
+}
+
+.animal-info h3 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.animal-info p {
+    margin: 5px 0;
+    color: #7f8c8d;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.animal-info p strong {
+    color: #34495e;
+    margin-right: 5px;
+    text-align: center;
+}
+
+/* Butoane actiune */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 20px 20px;
+}
+
+.action-buttons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.details-button {
+    background-color: #5a3e36;
+    color: white;
+}
+
+.details-button:hover {
+    background-color: #5a3e36;
+}
+
+.adopt-button {
+    background-color: #5a3e36;
+    color: white;
+}
+
+.adopt-button:hover {
+    background-color: #5a3e36;
+}
+
+/* Buton match */
+.match-button {
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+    padding: 12px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.match-button:hover {
+    background-color: #7f8c8d;
+}
+
+/* Mesaj fara animale */
+.no-animals {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 40px;
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column;
+    }
+
+    .animal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .match-button {
+        width: 100%;
+    }
+}

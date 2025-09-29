@@ -1,0 +1,43 @@
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: #f3e5d8;
+    padding: 30px;
+    border-radius: 16px;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.slider-group {
+    margin-bottom: 30px;
+}
+
+.slider-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="range"] {
+    width: 100%;
+    accent-color: orange;
+}
+
+.slider-group p {
+    text-align: center;
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.view-result {
+    width: 100%;
+    padding: 12px;
+    background-color: #5a3e36;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}

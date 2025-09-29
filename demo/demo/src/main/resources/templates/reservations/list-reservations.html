@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Rezervărilor</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f3e5d8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #5a3e36;
+        }
+        .reservation-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #f9f9f9;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .reservation-info {
+            flex: 1;
+            padding: 0 15px;
+        }
+        .reservation-info h3 {
+            margin: 0;
+            color: #333;
+        }
+        .reservation-info p {
+            margin: 5px 0;
+            color: #777;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .action-buttons a {
+            text-decoration: none;
+            padding: 8px 15px;
+            color: white;
+            background-color: #5a3e36;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .action-buttons a.cancel {
+            background-color: #dc3545;
+        }
+        .action-buttons a.edit {
+            background-color: #a0522d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lista Rezervărilor</h1>
+
+    <div>
+        <a href="/reservation/create" style="background-color: #5a3e36; padding: 8px 15px; color: white; border-radius: 4px; text-decoration: none;">Crează o rezervare nouă</a>
+    </div>
+
+    <div id="reservation-list">
+        <!-- Afișează rezervările -->
+        <div th:each="reservation : ${reservations}" class="reservation-card">
+            <div class="reservation-info">
+                <h3 th:text="${reservation.client.name}">Client Name</h3>
+                <p><strong>Data și Ora:</strong> <span th:text="${reservation.reservationDatetime}">Datetime</span></p>
+                <p><strong>Status:</strong> <span th:text="${reservation.status}">Status</span></p>
+            </div>
+            <div class="action-buttons">
+                <!-- Buton pentru Editarea rezervării -->
+                <a th:href="@{/reservation/edit/{id}(id=${reservation.ID})}" class="edit">Editează</a>
+
+                <!-- Buton pentru Anularea rezervării -->
+                <a th:href="@{/reservation/delete/{id}(id=${reservation.ID})}" class="cancel" onclick="return confirm('Sigur doriți să anulați această rezervare?')">Anulează</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

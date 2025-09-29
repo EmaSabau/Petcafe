@@ -1,0 +1,59 @@
+.result-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.animal-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.animal-card img {
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.info {
+    text-align: left;
+    max-width: 400px;
+}
+
+.compatibility {
+    font-size: 1.2rem;
+    color: #ff4d4f;
+    margin: 0.5rem 0;
+}
+
+.actions button {
+    margin: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.favourite {
+    background-color: #ffc107;
+}
+
+.adopt {
+    background-color: #28a745;
+    color: white;
+}
+
+.details p {
+    margin: 0.3rem 0;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f3e5d8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #5a3e36;
+        }
+        .animal-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #f9f9f9;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .animal-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+        }
+        .animal-info {
+            flex: 1;
+            padding: 0 15px;
+        }
+        .animal-info h3 {
+            margin: 0;
+            color: #333;
+        }
+        .animal-info p {
+            margin: 5px 0;
+            color: #777;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .action-buttons a {
+            text-decoration: none;
+            padding: 8px 15px;
+            color: white;
+            background-color: #5a3e36;
+            border-radius: 4px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .action-buttons a.delete {
+            background-color: #dc3545;
+        }
+        .action-buttons a i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lista Animalelor</h1>
+    <div id="animal-list">
+        <!-- Animalele vor fi afisate aici din backend -->
+        <div th:each="animal : ${animals}" class="animal-card">
+            <img th:src="${animal.image}" alt="Animal Image" />
+            <div class="animal-info">
+                <h3 th:text="${animal.name}">Animal Name</h3>
+                <p><strong>Age:</strong> <span th:text="${animal.age}">Age</span></p>
+                <p><strong>Gender:</strong> <span th:text="${animal.gender}">Gender</span></p>
+                <p><strong>Breed:</strong> <span th:text="${animal.breed}">Breed</span></p>
+                <p><strong>Description:</strong> <span th:text="${animal.description}">Description</span></p>
+            </div>
+            <div class="action-buttons">
+                <!-- Link pentru Editare -->
+                <a th:href="@{/animal/edit/{id}(id=${animal.ID})}" class="edit">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+                <!-- Link pentru Ștergere -->
+                <a th:href="@{/animal/delete/{id}(id=${animal.ID})}" class="delete"
+                   onclick="return confirm('Sigur doriți să ștergeți acest animal?')">
+                    <i class="fas fa-trash"></i> Delete
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
